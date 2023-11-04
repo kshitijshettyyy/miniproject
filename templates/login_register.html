@@ -1,45 +1,141 @@
-{% extends 'main.html' %}
+<!-- {% extends 'main.html' %} -->
 
-{% block content %}
+<!-- {% block content %} -->
+{% load static %}
+<style>
+    body {
+        /* display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        overflow: hidden;
+        margin: 0; */
+        color: white;
+    }
+
+    .container {
+        background-color: black;
+        width: 70%;
+        height: 70%;
+        border-radius: 30px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        grid-template-areas: 'login-section  img-aside';
+        justify-items: center;
+        align-content: center;
+       align-items: center
+
+
+    }
+
+    .login-heading {
+        font-size: 40px;
+        color: white;
+        font-family: cursive;
+        margin: 4rem 1rem 1rem 1rem;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .login-item,
+    .login-submit {
+        padding: 0.5rem;
+        border-radius: 25px;
+        color: white;
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+
+    }
+
+    .login-submit {
+        background-color: rgb(142, 229, 142);
+        padding: 0.3rem 2.5rem 0.3rem 2.5rem;
+        margin: 2rem 1rem 0px 1rem;
+        transform: translateY(-25px);
+        transition: all ease 0.3s;
+        box-shadow: 5px solid black 5px;
+        color: black;
+        font-family: cursive;
+
+        font-size: 15px;
+
+    }
+    .log-register{
+        color: aquamarine;
+    }
+    .reg-container{
+        background-color: black;
+        width: 75%;
+        height: 75%;
+        border-radius: 30px;
+         display: grid;
+        /*grid-template-columns: 1fr ;
+        gap: 1rem;
+        grid-template-areas: 'login-section  img-aside'; */
+        justify-items: center;
+        align-items: center;
+        margin: auto;
+        /* padding: 50px; */
+        text-decoration: none;
+    }
     
-    {% if page == 'register' %}
+        input{
+            /* border: radius 50% !important; 
+             */
+             height: 40px;
+        }
+    
+</style>
+{% if page == 'register' %}
 
-        <h1>Register</h1>
-        <div>
-            <form method="POST" action="{% url 'register' %}">
-                {% csrf_token %}
-                {{form.as_p}}
-                <input type="submit" value="Register">
+<h1>Register</h1>
+<div  class="reg-container">
+    <h1 class="login-heading" style="margin:0.5rem">Registration</h1>
+    <form method="POST" action="{% url 'register' %}">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Register" class="login-item login-submit"  >
 
-            </form>
-        </div>
-        <p>Already have an account ?? <a href="{% url 'login' %}">Login</a></p>      
+    </form>
+    
+<p >Already have an account ?? <a href="{% url 'login' %}">Login</a></p>
+</div>
 
-    {% else %}
 
-        
-        <h1>Login User</h1>
+{% else %}
+<div class="container">
+    <div class="login-con" style="grid-area:login-section ;">
+        <h1 class="login-heading">Login User</h1>
+
         <form method="POST" action="{% url 'login' %}">
             {% csrf_token %}
-            <div>
-                <label>Username :</label>
-                <input type="text" name="username"/>
+            <div class="login-item">
+                <!-- <label>Username :</label> -->
+                <input type="text" name="username" placeholder="Enter Name" />
             </div>
-            <div>
-                <label>Email :</label>
-                <input type="email" name="email"/>
+            <div class="login-item">
+                <!-- <label>Email :</label> -->
+                <input type="email" name="email" placeholder="Enter Email"/>
             </div>
-            <div>
-                <label>Password :</label>
-                <input type="password" name="password"/>
+            <div class="login-item">
+                <!-- <label>Password :</label> -->
+                <input type="password" name="password" placeholder="Enter Password" />
             </div>
-            <div>
-                <input type="submit" value="Login">
+            <div class="login-item">
+                <input type="submit" value="Login" class="login-submit">
             </div>
-            <p>Dont have an account ?? <a href="{% url 'register' %}">Register</a></p>
+            <!-- <div>
+                <button class="login-submit" type="submit"> Submit</button>
+            </div> -->
+            <p>Dont have an account ?? <a  class="log-register" href="{% url 'register' %}">Register</a></p>
         </form>
+    </div>
+    <!-- image -->
+    <div class="image" style="grid-area: img-aside;">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.h-h_qMscTTMqZEcNXDrNiQHaHa?w=183&h=183&c=7&r=0&o=5&dpr=1.1&pid=1.7" alt="error" height="400px" width="400px">
+    </div>
+</div>
+{% endif %}
 
-    {% endif %}
 
-        
-{% endblock content %}
+<!-- {% endblock content %} -->

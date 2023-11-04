@@ -1,6 +1,150 @@
 {% extends 'main.html' %}
 
 {% block content %}
-    <h1>{{user.name}}</h1>
-{% endblock content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body {
+        background-color: black;
+        color: white;
+        /* display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+            margin: 0; */
 
+    }
+
+    .container {
+       /* background-color: aqua; */
+        width: 60%;
+        height: 60%;
+        /* display: grid;
+        align-items: center; */
+    
+        /* display: inline-block; */
+        
+
+        /* margin: 10re; */
+
+    }
+
+    .profile-img {
+        background-color: aliceblue;
+        border-radius: 100%;
+        margin: 0px 25px 0px 0px;
+        vertical-align: middle;
+    }
+
+    .profile-name {
+        color: aliceblue;
+        font-size: 30px;
+        vertical-align: middle;
+
+    }
+
+    .profile {
+        display: flex;
+        /* margin: 2rem; */
+    }
+
+    .event-list {
+        background-color: white;
+        padding: 20px;
+        border-radius: 20px;
+        width: 50%;
+        color: black;
+        margin: 20px;
+    }
+
+    .program {
+        margin-top: 0px;
+        /* font-family: cursive; */
+    }
+
+    .event-details {
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+
+    }
+    /* .event-list:hover{
+   border: 3px solid rgb(90, 203, 240);
+    } */
+
+    .icon-users {
+        font-size: 20px;
+    }
+
+    .innerContainer {
+
+        /* width: 70%;
+        height: 70%;
+        margin: auto; */
+        padding: 20px 50px 0px 20px;
+    }
+
+    .name {
+        /* font-style: oblique; */
+        text-transform:uppercase;
+    }
+    .program{
+        font-size: 22px;
+    }
+    .reg_eve{
+        margin-top: 60px;
+    }
+    .main_pro
+    {
+        height: 100vh;
+    }
+</style>
+<div >
+    <div class="innerContainer">
+        <div class="profile ">
+            <!-- image...... -->
+            <img src="{{user.image.url}}" alt="" height="57px" width="55px" class="profile-img">
+            <h1 class="name">{{user.name}}</h1>
+        </div>
+    </div>
+    <div class="events">
+        <h3 style="color: azure; margin-left: 30px;" class="reg_eve">REGISTERED EVENTS</h3>
+
+        <div class="event-list">
+            <h4 class="program">Mental Awareness Programme</h4>
+            <div class="event-details">
+                <div class="icon-users"> <i class="fa fa-users"></i> <span class="number-seat"> 25</span></div>
+
+            </div>
+
+        </div>
+        <div class="event-list">
+            <h4 class="program">Comicon</h4>
+            <div class="event-details">
+                <div class="icon-users"> <i class="fa fa-users"></i> <span class="number-seat"> 25</span></div>
+
+            </div>
+        </div>
+        <div class="event-list">
+            <h4 class="program">Samay Raina Standup</h4>
+            <div class="event-details">
+                <div class="icon-users"> <i class="fa fa-users"></i> <span class="number-seat"> 25</span></div>
+
+            </div>
+        </div>
+        <div class="event-list">
+            <h4 class="program">Talk on Adoloscense </h4>
+            <div class="event-details">
+                <div class="icon-users"> <i class="fa fa-users"></i> <span class="number-seat"> 25</span></div>
+
+            </div>
+        </div>
+        <div class="event-list">
+            <h4 class="program">Road Safety Aeareness</h4>
+            <div class="event-details">
+                <div class="icon-users"> <i class="fa fa-users"></i> <span class="number-seat"> 25</span></div>
+
+            </div>
+        </div>
+    </div>
+    {% endblock content %}

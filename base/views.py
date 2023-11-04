@@ -56,6 +56,7 @@ def account_page(request):
     context={'user':user}
     return render(request,'account.html',context)
 
+@login_required(login_url='login')
 def event_page(request,pk):
     event=Event.objects.get(id=pk)
     registered=request.user.events.filter(id=event.id).exists()

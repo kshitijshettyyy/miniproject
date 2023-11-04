@@ -1,34 +1,247 @@
 {% extends 'main.html' %}
+ {% block content %}
+<style>
+    /* Add your custom styles here */
+    /* For example, you can set the background color and text color of the cards */
+     body
+     {
+        background-color: black !important;
+        color: white !important;
+     }
+    .card {
+        /* background-color: #314f6e;
+        color: #692424; */
+        /* width: 50% !important; */
+        margin-left: 1rem;
+        /* height: 3rem; */
+        padding: 3rem;
+        /* font-family:Verdana, Geneva, Tahoma, sans-serif */
+    }
 
-{% block content %}
-    {% comment %} <h1>homepage</h1>     {% endcomment %}
-    <section>
-        <h3>Events</h3>
-        <div id="events--lists">
+    /* Optionally, you can add some spacing between the cards */
+    .card + .card {
+        margin-top: 20px;
+        /* padding: 2rem; */
+        height: 5rem;
+        /* padding: 50px; */
+        /* font-family: 'Courier New', Courier, monospace; */
+        /* font-size: 50px; */
+
+    }
+    a{
+        text-decoration: none !important;
+        color: inherit;
+        /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+    }
+    .event-name
+    {
+        text-decoration:none;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 30px;
+        padding: 50px;
+        background-color: white;
+        margin:  10px;
+        border-radius: 20px;
+        color: white;
+        background-color: black;
+
+       
+        
+    }
+    .event-name:hover{
+        opacity: 0.8;
+        /* width: 1%; */
+    }
+    .imgs
+    {
+        width: 50%;
+        margin-left: 2px;
+        margin-right: 5px;
+
+        background-color: #692424;
+        /* background-image: url("images/"); */
+    }
+    .set_card_width
+    {
+        width: 100%;
+        display: block;
+    }
+    /* .flex_main
+    {
+        display: flex;
+        width: 100%;
+    } */
+    /* .set_event_width
+    {
+        width: 50%;
+    } */
+    .event_height
+    {
+        /* max-height: max-content; */
+        width: 80%;
+        background-color: white;
+        padding: 50px;
+        border-radius: 30px;
+        margin: auto;
+        height: 80vh;
+        overflow-y: scroll;
+        
+    }
+    /* .scroll_events
+    {
+        over
+    } */
+    /* .main_div_event
+    {
+        overflow-y: scroll;
+    } */
+    /* .main_section{
+     width: 100%;
+    } */
+    .main_div_event {
+        height: max-content; /* Set the height to max-content */
+    }
+    .head
+    {
+        font-size: 40px;
+        position:sticky;
+    }
+    .home-main
+    {
+        display: flex;
+        width: 100%;
+        height: 100vh;
+    }
+    .sec1
+    {
+        width: 70%;
+    }
+    .sec2
+    {
+        width: 18%;
+        color: black;
+        background-color: white;
+        border-radius: 20px;
+        height: 80vh;
+        /* overflow-y: scroll; */
+    }
+    .users
+    {
+        font-size: 20px;
+        text-decoration: none !important;
+        color: black;
+    }
+    .usermain
+    {
+        width: 50%;
+        margin: auto;
+        overflow-y: scroll;
+        height: 70vh;
+
+    }
+    .about
+    {
+        height: 100vh;
+        background-color: #692424;
+        width: 100%;
+
+    }
+    .image-about
+    {
+        width: 50%;
+        background-color: aliceblue;
+    }
+    .text
+    {
+        width: 50%;
+        background-color: aqua;
+    }
+    .about_sec
+    {
+        display: flex;
+        height: 80%;
+        margin:auto;
+    }
+    .hr{
+        color: white  !important;
+    }
+    .scroll_events
+    {
+        width:100%;
+
+    }
+    .event-img
+    {
+      width:50%;
+      height:100%;
+    }
+    .flex-cards
+    {
+        display:flex;
+    }
+    .eve-name
+    {
+
+    }
+    .event-name 
+    {
+        display:flex;
+        align-items: center
+    }
+</style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+{% comment %} <h1>homepage</h1>     {% endcomment %}
+<div class="home-main">
+    <section class="sec1">
+        <div class="container main_div_event my-5">
+        
+        <div id="events--lists" class="event_height">
+            <h1 class="head text-dark mx-3" >
+            <div class="scroll_events">
+                <h1>Events</h1>
             {% for event in events %}
-                <a href="{% url 'event' event.id %}">
-                    <div>
-                        {{event.name}}
+           
+                <a  href="{% url 'event' event.id %}">
+                    <div class="event-name ">
+                        <img class='event-img' src="{{event.image.url}}" alt="">
+                    <div class="eve-name ms-3">{{event.name}}</div>
                     </div>
                 </a>
+           
                 
             {% endfor %}
         </div>
+        </h1
+    </div>
+    </div>
     </section>
 
-    <section>
-        <h3>Users</h3>
-        <div id="events--lists">
+    <section class="sec2 my-5 ">
+        <h1 class="text-center">Users</h1> 
+        <div id="events--lists " class="usermain">
             {% for user in users %}
             <a href="{% url 'profile' user.id%}">
-                <div>
+                <div class="container users ">
                     {{user.name}}
                 </div>
             </a>
                 
-                
+            <hr class="hr">
             {% endfor %}
         </div>
     </section>
+    <hr>
+</div>
+{% comment %} <div class="about my-5">
+  <div class="container about_sec  ">
+    <div class="text">
+     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores error minus possimus minima. Dicta obcaecati veniam optio ullam, provident necessitatibus deleniti voluptas itaque nulla adipisci sint aspernatur porro. Ut alias expedita voluptatum voluptatibus vel obcaecati sunt quisquam neque hic, accusantium culpa? Laborum mollitia ad vel iure, unde veniam numquam? Ut.
+    </div>
+    <div class="image-about">
+       Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, architecto maxime corrupti aut ipsa quod tenetur culpa obcaecati in pariatur dolorem id explicabo accusantium voluptatibus ad tempore illum at cupiditate recusandae minus repellendus inventore blanditiis neque. Impedit animi quae corrupti, nemo iste maiores praesentium, eligendi, cum ut iusto ipsum ea voluptatem voluptas incidunt. Praesentium, adipisci eaque saepe qui incidunt pariatur!
+    </div>
+  </div>
+</div> {% endcomment %}
 {% endblock content %}
     

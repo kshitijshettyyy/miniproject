@@ -3,6 +3,7 @@ from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 class User(AbstractUser):
+    image=models.ImageField(upload_to='events/%y',null=True)
     name=models.CharField(max_length=100,null=True)
     email=models.EmailField(unique=True,null=True)
     bio=models.TextField(null=True,blank=True)
@@ -12,6 +13,7 @@ class User(AbstractUser):
     pass
 
 class Event(models.Model):
+    image=models.ImageField(upload_to='profile_pics/%y',null=True)
     name=models.CharField(max_length=100,null=True)
     description=models.TextField(null=True,blank=True)
     participants=models.ManyToManyField(User,blank=True,related_name='events')
